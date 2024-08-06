@@ -66,6 +66,8 @@ public class PageAutoDialect {
         dialectAliasMap.put("sqlserver2012", SqlServer2012Dialect.class);
 
         dialectAliasMap.put("derby", SqlServer2012Dialect.class);
+        dialectAliasMap.put("xugu", XuGuDialect.class);
+        dialectAliasMap.put("cae", XuGuDialect.class);
     }
 
     //自动获取dialect,如果没有setProperties或setSqlUtilConfig，也可以正常进行

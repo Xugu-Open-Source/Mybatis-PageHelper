@@ -84,6 +84,13 @@
             <optional>true</optional>
         </dependency>
 
+        <!-- xugu-jdbc -->
+        <dependency>
+            <groupId>com.xugudb</groupId>
+            <artifactId>xugu-jdbc</artifactId>
+            <version>12.3.0</version>
+        </dependency>
+
         <!-- test -->
         <dependency>
             <groupId>junit</groupId>
