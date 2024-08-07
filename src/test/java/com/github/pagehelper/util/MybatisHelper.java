@@ -51,8 +51,7 @@ public class MybatisHelper {
             reader.close();
             if (TestUtil.getXmlPath().equalsIgnoreCase("hsqldb")
                     || TestUtil.getXmlPath().equalsIgnoreCase("h2")
-                    || TestUtil.getXmlPath().equalsIgnoreCase("derby")
-                    || TestUtil.getXmlPath().equalsIgnoreCase("xugu")) {
+                    || TestUtil.getXmlPath().equalsIgnoreCase("derby")) {
                 //创建数据库
                 SqlSession session = null;
                 try {
