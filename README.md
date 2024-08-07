@@ -15,6 +15,16 @@ Some special cases please see the [**Important note**](https://github.com/pagehe
 Want to use PageHelper? 
 Please see [**How to use PageHelper**](https://github.com/pagehelper/Mybatis-PageHelper/blob/master/wikis/en/HowToUse.md).
 
+## 新书《MyBatis 从入门到精通》
+
+![MyBatis 从入门到精通](https://github.com/mybatis-book/book/raw/master/book.png)
+
+预售地址：[京东](https://item.jd.com/12103309.html)，[当当](http://product.dangdang.com/25098208.html)，[亚马逊](https://www.amazon.cn/MyBatis从入门到精通-刘增辉/dp/B072RC11DM/ref=sr_1_18?ie=UTF8&qid=1498007125&sr=8-18&keywords=mybatis)
+
+CSDN博客：http://blog.csdn.net/isea533/article/details/73555400
+
+GitHub项目：https://github.com/mybatis-book/book
+
 ## Support [MyBatis 3.1.0+](https://github.com/mybatis/mybatis-3)
 ## Physical Paging
 
@@ -32,6 +42,7 @@ PageHelper supports the following databases:
  10. `H2`
  11. `SqlServer2012`
  12. `Derby`
+ 13. `Phoenix`
 
 ## Use [QueryInterceptor spec](https://github.com/pagehelper/Mybatis-PageHelper/blob/master/src/main/java/com/github/pagehelper/QueryInterceptor.java) 
 
@@ -76,9 +87,7 @@ Blog: http://blog.csdn.net/isea533
 
 Email: abel533@gmail.com  
 
-QQ Group(recommend): <a target="_blank" href="http://shang.qq.com/wpa/qunwpa?idkey=7c2f018e4cddc7d4aad04fc312b2d69361a0a896a4f59219a7914953a57bffc2"><img border="0" src="http://pub.idqqimg.com/wpa/images/group.png" alt="Mybatis工具群(2)" title="Mybatis工具群(2)"></a>
-
-QQ Group(2000 full): <a target="_blank" href="http://shang.qq.com/wpa/qunwpa?idkey=29e4cce8ac3c65d14a1dc40c9ba5c8e71304f143f3ad759ac0b05146e0952044"><img border="0" src="http://pub.idqqimg.com/wpa/images/group.png" alt="Mybatis工具" title="Mybatis工具"></a>
+QQ Group: <a target="_blank" href="http://shang.qq.com/wpa/qunwpa?idkey=7c2f018e4cddc7d4aad04fc312b2d69361a0a896a4f59219a7914953a57bffc2"><img border="0" src="http://pub.idqqimg.com/wpa/images/group.png" alt="Mybatis工具群(2)" title="Mybatis工具群(2)"></a>
 
 PageHelper on github:https://github.com/pagehelper/Mybatis-PageHelper
 
