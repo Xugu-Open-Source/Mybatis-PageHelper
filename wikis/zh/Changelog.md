@@ -1,5 +1,12 @@
 ## 更新日志
 
+### 5.0.1 - 2017-04-23
+
+- 增加新的参数 `countColumn` 用于配置自动 count 查询时的查询列，默认值`0`，也就是 `count(0)`
+- `Page` 对象也新增了 `countColumn` 参数，可以针对具体查询进行配置
+- 针对文档显示问题进行修改，by liumian* [PR #30](https://github.com/pagehelper/Mybatis-PageHelper/pull/30)
+- 解决 sqlserver2012 分页错误的问题 [42](https://github.com/pagehelper/Mybatis-PageHelper/issues/42)
+
 ### 5.0.0 - 2017-01-02
 
 - 使用 [QueryInterceptor 规范](https://github.com/pagehelper/Mybatis-PageHelper/blob/master/src/main/java/com/github/pagehelper/QueryInterceptor.java) 处理分页逻辑
