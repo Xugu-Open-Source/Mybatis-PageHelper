@@ -22,54 +22,33 @@
  * THE SOFTWARE.
  */
 
-package com.github.pagehelper.model;
+package com.github.pagehelper.test.basic;
 
-import java.io.Serializable;
+import com.github.pagehelper.mapper.CountryMapper;
+import com.github.pagehelper.model.Country;
+import com.github.pagehelper.util.MybatisHelper;
+import org.apache.ibatis.session.SqlSession;
+import org.junit.Assert;
+import org.junit.Test;
+
 import java.util.List;
 
-/**
- * Description: Country
- * Author: liuzh
- * Update: liuzh(2014-06-06 13:38)
- */
-public class Country implements Serializable {
-    private static final long serialVersionUID = 6569081236403751407L;
+public class CloseableTest {
 
-    private int id;
-    private String countryname;
-    private String countrycode;
-
-    List<Country> countries;
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getCountryname() {
-        return countryname;
-    }
-
-    public void setCountryname(String countryname) {
-        this.countryname = countryname;
-    }
-
-    public String getCountrycode() {
-        return countrycode;
-    }
-
-    public void setCountrycode(String countrycode) {
-        this.countrycode = countrycode;
-    }
-
-    public List<Country> getCountries() {
-        return countries;
-    }
-
-    public void setCountries(List<Country> countries) {
-        this.countries = countries;
+    @Test
+    public void testCloseable() {
+        SqlSession sqlSession = MybatisHelper.getSqlSession();
+        CountryMapper countryMapper = sqlSession.getMapper(CountryMapper.class);
+        //下面注释代码只能在jdk7+中进行测试
+//        try(Page<Object> page = PageHelper.startPage(1, 10)) {
+//            int a = 10/0;
+//            countryMapper.selectAll();
+//            Assert.fail();
+//        } catch (Exception e){
+//            e.printStackTrace();
+//        }
+        List<Country> countries = countryMapper.selectAll();
+        Assert.assertEquals(183, countries.size());
+        sqlSession.close();
     }
 }

@@ -27,19 +27,14 @@ package com.github.pagehelper.model;
 import java.io.Serializable;
 import java.util.List;
 
-/**
- * Description: Country
- * Author: liuzh
- * Update: liuzh(2014-06-06 13:38)
- */
-public class Country implements Serializable {
+public class CountryCode implements Serializable {
     private static final long serialVersionUID = 6569081236403751407L;
 
-    private int id;
+    private int    id;
     private String countryname;
-    private String countrycode;
+    private Code   countrycode;
 
-    List<Country> countries;
+    List<CountryCode> countries;
 
     public int getId() {
         return id;
@@ -57,19 +52,19 @@ public class Country implements Serializable {
         this.countryname = countryname;
     }
 
-    public String getCountrycode() {
+    public Code getCountrycode() {
         return countrycode;
     }
 
-    public void setCountrycode(String countrycode) {
+    public void setCountrycode(Code countrycode) {
         this.countrycode = countrycode;
     }
 
-    public List<Country> getCountries() {
+    public List<CountryCode> getCountries() {
         return countries;
     }
 
-    public void setCountries(List<Country> countries) {
+    public void setCountries(List<CountryCode> countries) {
         this.countries = countries;
     }
 }
