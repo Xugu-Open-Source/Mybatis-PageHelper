@@ -41,6 +41,7 @@
 
     <plugins>
         <plugin interceptor="com.github.pagehelper.PageInterceptor">
+            <property name="helperDialect" value="oracle"/>
             <property name="offsetAsPageNum" value="true"/>
             <property name="rowBoundsWithCount" value="true"/>
         </plugin>
