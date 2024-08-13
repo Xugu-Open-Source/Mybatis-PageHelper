@@ -33,20 +33,26 @@ GitHub项目：https://github.com/mybatis-book/book
 
 该插件目前支持以下数据库的<b>物理分页</b>:
 
- 1. `Oracle`
- 2. `Mysql`
- 3. `MariaDB`
- 4. `SQLite`
- 5. `Hsqldb`
- 6. `PostgreSQL`
- 7. `DB2`
- 8. `SqlServer(2005,2008)`
- 9. `Informix`
- 10. `H2`
- 11. `SqlServer2012`
- 12. `Derby`
- 13. `Phoenix`
- 
+1. `Oracle`
+2. `Mysql`
+3. `MariaDB`
+4. `SQLite`
+5. `Hsqldb`
+6. `PostgreSQL`
+7. `DB2`
+8. `SqlServer(2005,2008)`
+9. `Informix`
+10. `H2`
+11. `SqlServer2012`
+12. `Derby`
+13. `Phoenix`
+14. 达梦数据库(dm)
+15. 阿里云PPAS数据库
+16. 神通数据库
+17. HerdDB
+
+>这里的数据库列表更新不及时，详情看这里: [PageAutoDialect.java#L58](https://github.com/pagehelper/Mybatis-PageHelper/blob/master/src/main/java/com/github/pagehelper/page/PageAutoDialect.java#L58)
+
 ## 使用 [QueryInterceptor 规范](https://github.com/pagehelper/Mybatis-PageHelper/blob/master/src/main/java/com/github/pagehelper/QueryInterceptor.java) 
 [Executor 拦截器高级教程 - QueryInterceptor 规范](https://github.com/pagehelper/Mybatis-PageHelper/blob/master/wikis/zh/Interceptor.md)
 
@@ -55,7 +61,9 @@ GitHub项目：https://github.com/mybatis-book/book
 由于分页插件 5.0 版本和 4.2.x 实现完全不同，所以 master 分支为 5.x 版本，4.2 作为一个分支存在，如果有针对 4.2 的 PR，请注意提交到分支版本。
 
 ## 集成
-使用 PageHelper 你只需要在 classpath 中包含 [pagehelper-x.x.x.jar](http://repo1.maven.org/maven2/com/github/pagehelper/pagehelper/) 和 [jsqlparser-0.9.5.jar](http://repo1.maven.org/maven2/com/github/jsqlparser/jsqlparser/0.9.5/)。
+使用 PageHelper 你只需要在 classpath 中包含 [pagehelper-x.y.z.jar](http://repo1.maven.org/maven2/com/github/pagehelper/pagehelper/) 和 [jsqlparser-x.y.z.jar](http://repo1.maven.org/maven2/com/github/jsqlparser/jsqlparser/)。
+
+>pagehelper 和 jsqlparser 对应关系参考 pom.xml 中的依赖版本。
 
 如果你使用 Maven，你只需要在 pom.xml 中添加下面的依赖：
 ```xml  
