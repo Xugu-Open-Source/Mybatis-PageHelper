@@ -46,7 +46,6 @@ public class XuGuDialect extends AbstractHelperDialect {
         } else {
             sqlBuilder.append(" LIMIT ?, ? ");
         }
-        pageKey.update(page.getPageSize());
         return sqlBuilder.toString();
     }
 
