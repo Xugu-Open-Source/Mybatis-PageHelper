@@ -127,6 +127,7 @@ public class Page<E> extends ArrayList<E> implements Closeable {
         if (rowBounds[0] == 0 && rowBounds[1] == Integer.MAX_VALUE) {
             pageSizeZero = true;
             this.pageSize = 0;
+            this.pageNum = 1;
         } else {
             this.pageSize = rowBounds[1];
             this.pageNum = rowBounds[1] != 0 ? (int) (Math.ceil(((double) rowBounds[0] + rowBounds[1]) / rowBounds[1])) : 0;
@@ -355,12 +356,20 @@ public class Page<E> extends ArrayList<E> implements Closeable {
         return new PageInfo<E>(this);
     }
 
+    /**
+     * 数据对象转换
+     *
+     * @param function
+     * @param <T>
+     * @return
+     */
     public <T> PageInfo<T> toPageInfo(Function<E, T> function) {
         List<T> list = new ArrayList<T>(this.size());
         for (E e : this) {
             list.add(function.apply(e));
         }
         PageInfo<T> pageInfo = new PageInfo<T>(list);
+        pageInfo.setTotal(this.getTotal());
         pageInfo.setPageNum(this.getPageNum());
         pageInfo.setPageSize(this.getPageSize());
         pageInfo.setPages(this.getPages());
@@ -374,12 +383,21 @@ public class Page<E> extends ArrayList<E> implements Closeable {
         return new PageSerializable<E>(this);
     }
 
+    /**
+     * 数据对象转换
+     *
+     * @param function
+     * @param <T>
+     * @return
+     */
     public <T> PageSerializable<T> toPageSerializable(Function<E, T> function) {
         List<T> list = new ArrayList<T>(this.size());
         for (E e : this) {
             list.add(function.apply(e));
         }
-        return new PageSerializable<T>(list);
+        PageSerializable<T> pageSerializable = new PageSerializable<T>(list);
+        pageSerializable.setTotal(this.getTotal());
+        return pageSerializable;
     }
 
     /**

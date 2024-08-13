@@ -1,3 +1,4 @@
+![MyBatis Pagination - PageHelper](logo.png)
 # MyBatis 分页插件 - PageHelper
 
 [![Build Status](https://travis-ci.org/pagehelper/Mybatis-PageHelper.svg?branch=master)](https://travis-ci.org/pagehelper/Mybatis-PageHelper)
@@ -17,12 +18,11 @@
 
 Method API: https://apidoc.gitee.com/free/Mybatis_PageHelper/com/github/pagehelper/page/PageMethod.html
 
-
-## 新书《MyBatis 从入门到精通》
+## 《MyBatis 从入门到精通》
 
 ![MyBatis 从入门到精通](https://github.com/mybatis-book/book/raw/master/book.png)
 
-预售地址：[京东](https://item.jd.com/12103309.html)，[当当](http://product.dangdang.com/25098208.html)，[亚马逊](https://www.amazon.cn/MyBatis从入门到精通-刘增辉/dp/B072RC11DM/ref=sr_1_18?ie=UTF8&qid=1498007125&sr=8-18&keywords=mybatis)
+[京东](https://item.jd.com/12103309.html) ，[当当](http://product.dangdang.com/25098208.html) ，[亚马逊](https://www.amazon.cn/MyBatis从入门到精通-刘增辉/dp/B072RC11DM/ref=sr_1_18?ie=UTF8&qid=1498007125&sr=8-18&keywords=mybatis)
 
 CSDN博客：http://blog.csdn.net/isea533/article/details/73555400
 
@@ -31,27 +31,49 @@ GitHub项目：https://github.com/mybatis-book/book
 ## 支持 [MyBatis 3.1.0+](https://github.com/mybatis/mybatis-3)
 ## 物理分页
 
-该插件目前支持以下数据库的<b>物理分页</b>:
+该插件目前支持以下数据库的<b>物理分页</b> [PageAutoDialect](src/main/java/com/github/pagehelper/page/PageAutoDialect.java):
 
-1. `Oracle`
-2. `Mysql`
-3. `MariaDB`
-4. `SQLite`
-5. `Hsqldb`
-6. `PostgreSQL`
-7. `DB2`
-8. `SqlServer(2005,2008)`
-9. `Informix`
-10. `H2`
-11. `SqlServer2012`
-12. `Derby`
-13. `Phoenix`
-14. 达梦数据库(dm)
-15. 阿里云PPAS数据库
-16. 神通数据库
-17. HerdDB
+```java
+static {
+    //注册别名
+    registerDialectAlias("hsqldb", HsqldbDialect.class);
+    registerDialectAlias("h2", HsqldbDialect.class);
+    registerDialectAlias("phoenix", HsqldbDialect.class);
+    registerDialectAlias("postgresql", PostgreSqlDialect.class);
+    registerDialectAlias("mysql", MySqlDialect.class); 
+    registerDialectAlias("mariadb", MySqlDialect.class); 
+    registerDialectAlias("sqlite", MySqlDialect.class);
+    registerDialectAlias("herddb", HerdDBDialect.class);
+    registerDialectAlias("oracle", OracleDialect.class); 
+    registerDialectAlias("oracle9i", Oracle9iDialect.class); 
+    registerDialectAlias("db2", Db2Dialect.class); 
+    registerDialectAlias("informix", InformixDialect.class); 
+    //解决 informix-sqli #129，仍然保留上面的 
+    registerDialectAlias("informix-sqli", InformixDialect.class);
+    registerDialectAlias("sqlserver", SqlServerDialect.class); 
+    registerDialectAlias("sqlserver2012", SqlServer2012Dialect.class);
+    registerDialectAlias("derby", SqlServer2012Dialect.class); 
+    //达梦数据库,https://github.com/mybatis-book/book/issues/43 
+    registerDialectAlias("dm", OracleDialect.class); 
+    //阿里云PPAS数据库,https://github.com/pagehelper/Mybatis-PageHelper/issues/281 
+    registerDialectAlias("edb", OracleDialect.class); 
+    //神通数据库 
+    registerDialectAlias("oscar", OscarDialect.class); 
+    registerDialectAlias("clickhouse", MySqlDialect.class); 
+    //瀚高数据库 
+    registerDialectAlias("highgo", HsqldbDialect.class); 
+    //虚谷数据库 
+    registerDialectAlias("xugu", HsqldbDialect.class); 
+}
+```
 
->这里的数据库列表更新不及时，详情看这里: [PageAutoDialect.java#L58](https://github.com/pagehelper/Mybatis-PageHelper/blob/master/src/main/java/com/github/pagehelper/page/PageAutoDialect.java#L58)
+>如果你使用的数据库不在这个列表时，你可以配置 `dialectAlias` 参数。
+>
+>这个参数允许配置自定义实现的别名，可以用于根据 JDBCURL 自动获取对应实现，允许通过此种方式覆盖已有的实现，配置示例如（多个配置时使用分号隔开）：
+>
+>```xml
+><property name="dialectAlias" value="oracle=com.github.pagehelper.dialect.helper.OracleDialect"/>
+>```
 
 ## 使用 [QueryInterceptor 规范](https://github.com/pagehelper/Mybatis-PageHelper/blob/master/src/main/java/com/github/pagehelper/QueryInterceptor.java) 
 [Executor 拦截器高级教程 - QueryInterceptor 规范](https://github.com/pagehelper/Mybatis-PageHelper/blob/master/wikis/zh/Interceptor.md)
@@ -63,7 +85,7 @@ GitHub项目：https://github.com/mybatis-book/book
 ## 集成
 使用 PageHelper 你只需要在 classpath 中包含 [pagehelper-x.y.z.jar](http://repo1.maven.org/maven2/com/github/pagehelper/pagehelper/) 和 [jsqlparser-x.y.z.jar](http://repo1.maven.org/maven2/com/github/jsqlparser/jsqlparser/)。
 
->pagehelper 和 jsqlparser 对应关系参考 pom.xml 中的依赖版本。
+> pagehelper 和 jsqlparser 对应关系参考 pom.xml 中的依赖版本。
 
 如果你使用 Maven，你只需要在 pom.xml 中添加下面的依赖：
 ```xml  
@@ -105,7 +127,7 @@ GitHub项目：https://github.com/mybatis-book/book
 
 作者博客：http://blog.csdn.net/isea533
 
-作者邮箱： abel533@gmail.com  
+作者邮箱： abel533@gmail.com
 
 如需加群，请通过 http://mybatis.io 首页按钮加群。
 
