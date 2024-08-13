@@ -94,15 +94,20 @@ GitHub项目：https://github.com/mybatis-book/book
 - [提交到 github](https://github.com/pagehelper/Mybatis-PageHelper/issues/new)
 - [提交到 gitosc](http://git.oschina.net/free/Mybatis_PageHelper/issues/new?issue%5Bassignee_id%5D=&issue%5Bmilestone_id%5D=)
 
+## 感谢 JetBrains 免费的开源授权
+
+<a href="https://www.jetbrains.com/?from=Mybatis-PageHelper" target="_blank">
+<img src="https://user-images.githubusercontent.com/1787798/69898077-4f4e3d00-138f-11ea-81f9-96fb7c49da89.png" height="200"/></a>
+
 ## 作者信息
 
-网站：http://www.mybatis.tk
+网站：https://mybatis.io
 
 作者博客：http://blog.csdn.net/isea533
 
 作者邮箱： abel533@gmail.com  
 
-如需加群，请通过 http://mybatis.tk 首页按钮加群。
+如需加群，请通过 http://mybatis.io 首页按钮加群。
 
 本项目在 github 的项目地址：https://github.com/pagehelper/Mybatis-PageHelper
 
