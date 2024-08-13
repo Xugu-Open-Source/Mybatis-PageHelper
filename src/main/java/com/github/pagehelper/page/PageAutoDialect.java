@@ -78,6 +78,8 @@ public class PageAutoDialect {
         registerDialectAlias("cae", XuGuDialect.class);
         //达梦数据库,https://github.com/mybatis-book/book/issues/43
         registerDialectAlias("dm", OracleDialect.class);
+        //阿里云PPAS数据库,https://github.com/pagehelper/Mybatis-PageHelper/issues/281
+        registerDialectAlias("edb", OracleDialect.class);
     }
 
     //自动获取dialect,如果没有setProperties或setSqlUtilConfig，也可以正常进行
