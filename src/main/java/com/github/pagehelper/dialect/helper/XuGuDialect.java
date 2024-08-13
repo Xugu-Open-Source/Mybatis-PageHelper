@@ -23,20 +23,7 @@ public class XuGuDialect extends AbstractHelperDialect {
         pageKey.update(page.getStartRow());
         pageKey.update(page.getPageSize());
         //处理参数配置
-        if (boundSql.getParameterMappings() != null) {
-            List<ParameterMapping> newParameterMappings = new ArrayList<ParameterMapping>();
-            if (boundSql != null && boundSql.getParameterMappings() != null) {
-                newParameterMappings.addAll(boundSql.getParameterMappings());
-            }
-            if (page.getStartRow() == 0) {
-                newParameterMappings.add(new ParameterMapping.Builder(ms.getConfiguration(), PAGEPARAMETER_SECOND, Integer.class).build());
-            } else {
-                newParameterMappings.add(new ParameterMapping.Builder(ms.getConfiguration(), PAGEPARAMETER_FIRST, Integer.class).build());
-                newParameterMappings.add(new ParameterMapping.Builder(ms.getConfiguration(), PAGEPARAMETER_SECOND, Integer.class).build());
-            }
-            MetaObject metaObject = MetaObjectUtil.forObject(boundSql);
-            metaObject.setValue("parameterMappings", newParameterMappings);
-        }
+        handleParameter(boundSql, ms);
         return paramMap;
     }
 
