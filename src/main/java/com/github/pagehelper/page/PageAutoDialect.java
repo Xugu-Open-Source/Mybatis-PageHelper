@@ -78,8 +78,7 @@ public class PageAutoDialect {
         registerDialectAlias("sqlserver2012", SqlServer2012Dialect.class);
 
         registerDialectAlias("derby", SqlServer2012Dialect.class);
-        registerDialectAlias("xugu", XuGuDialect.class);
-        registerDialectAlias("cae", XuGuDialect.class);
+
         //达梦数据库,https://github.com/mybatis-book/book/issues/43
         registerDialectAlias("dm", OracleDialect.class);
         //阿里云PPAS数据库,https://github.com/pagehelper/Mybatis-PageHelper/issues/281
@@ -90,7 +89,8 @@ public class PageAutoDialect {
         //瀚高数据库
         registerDialectAlias("highgo", HsqldbDialect.class);
         //虚谷数据库
-        registerDialectAlias("xugu", HsqldbDialect.class);
+        registerDialectAlias("xugu", XuGuDialect.class);
+        registerDialectAlias("cae", XuGuDialect.class);
     }
 
     //自动获取dialect,如果没有setProperties或setSqlUtilConfig，也可以正常进行
